@@ -380,6 +380,10 @@ abstract class BaseFacebook
     }
 
     $this->destroySession();
+    
+    //  daniele 2013.08.06
+    //  store the access token, otherwise when you need it, you'll get the "getApplicationAccessToken" (see 'getAccessToken')
+    $this->setAccessToken($response_params['access_token']) ;
 
     $this->setPersistentData(
       'access_token', $response_params['access_token']
